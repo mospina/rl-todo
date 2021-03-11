@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import List from "./List";
 import Form from "./Form";
+import Stats from "./Stats";
 
 const Tasks = () => {
   const [tasks, setTasks] = useState<Tasks.Tasks>([]);
@@ -30,6 +31,7 @@ const Tasks = () => {
         onTaskUpdate={handleUpdateTask}
         onTaskDelete={handleDeleteTask}
       />
+      <Stats tasks={tasks} />
     </div>
   );
 };

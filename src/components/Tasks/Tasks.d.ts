@@ -13,6 +13,10 @@ declare namespace Tasks {
     completed: number;
   };
 
+  type StatsProps = {
+    tasks: Tasks
+  }
+
   type ListProps = {
     tasks: Tasks;
     onTaskUpdate: (i: number, c: Task) => void;
