@@ -24,7 +24,6 @@ const Tasks = () => {
   return (
     <div>
       <h2>RL To Do</h2>
-      <p>A todo list app</p>
       <Form onSubmit={handleCreateTask} />
       <List
         tasks={tasks}

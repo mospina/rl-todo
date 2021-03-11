@@ -28,6 +28,32 @@
   color: #61dafb;
 }
 
+table {
+  margin: auto;
+  width: 60%
+}
+
+thead tr {
+  background-color: #c0c0c0;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #e8e8e8;
+}
+
+.round-button {
+  margin: 0 1em 0 1em;
+  border-radius: 50%;
+  border: 1px solid #98a1a4;
+  overflow: hidden;
+  background: transparent;
+  box-shadow: 0 0 3px gray;
+}
+
+.round-button:hover {
+  background: #30588e;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

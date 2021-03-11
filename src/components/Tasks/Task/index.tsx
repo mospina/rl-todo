@@ -32,24 +32,27 @@ const Task = ({ task, onTaskUpdate, onTaskDelete }: Tasks.TaskProps) => {
       <td>
         <button
           id={`increment-priority-${task.id}`}
+          className="round-button"
           onClick={handleIncrementPriority}
         >
-          increment
+          +
         </button>
         {task.priority}
         <button
           id={`decrement-priority-${task.id}`}
+          className="round-button"
           onClick={handleDecrementPriority}
         >
-          decrement
+          -
         </button>
       </td>
       <td>
         <button
           id={`delete-task-${task.id}`}
+          className="round-button"
           onClick={() => onTaskDelete(task.id)}
         >
-          delete
+          X
         </button>
       </td>
     </tr>
