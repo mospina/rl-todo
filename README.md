@@ -1,18 +1,30 @@
-# Getting Started with Create React App
+# RL ToDo List
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Specs
 
-## Available Scripts
+You have been asked to develop a to-do list application that allows the user to create and manage tasks. The application has the following features:
+• Add and view tasks
+• Delete a task
+• Complete a task
+• Set a priority for my tasks
+• View the tasks sorted by priority and name
+• View the number of total and completed tasks
 
-In the project directory, you can run:
+Instructions
+
+Please provide relevant source code of your implementation and any documentation and additional assumptions that you feel are appropriate. Please use the following information to assist you with completing the challenge successfully:
+• The intent of the challenge is to provide us with an opportunity to judge your problem solving, design and development skills. It is important to provide a solution that highlights your skills in these areas.
+• Develop the system using latest web technologies.
+• Server side code is not required.
+• Your solution should be high quality, well annotated, and include tests.
+• The simplest solution is often the best
+
+## Scripts
 
 ### `npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
 ### `npm test`
 
@@ -29,18 +41,23 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## Data
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Task: {
+  id: number
+  content: string
+  priority: number // Positive Integer [1..). The lowest the number the highest the priority
+  completed: boolean
+}
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Tasks: [Task]
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+TaskStats: {
+  total: number
+  completed: number
+}
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+createTask: (content, priority) -> Task
+updateTask: (id, changes) -> Task
+addTask: Task -> Tasks
+deleteTask: id -> Tasks
