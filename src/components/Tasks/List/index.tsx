@@ -11,7 +11,7 @@ const List = ({ tasks, onTaskUpdate, onTaskDelete }: Tasks.ListProps) => (
       </tr>
     </thead>
     <tbody>
-      {tasks.map((task) => (
+      {tasks.sort(compare).map((task) => (
         <Task
           key={task.id}
           task={task}
@@ -22,5 +22,13 @@ const List = ({ tasks, onTaskUpdate, onTaskDelete }: Tasks.ListProps) => (
     </tbody>
   </table>
 );
+
+const compare = (a: Tasks.Task, b: Tasks.Task): number => {
+  if (a.priority < b.priority) return -1
+  if (a.priority > b.priority) return 1
+  if (a.content.toLowerCase() < b.content.toLowerCase()) return -1
+  if (a.content.toLowerCase() > b.content.toLowerCase()) return 1
+  return 0
+}
 
 export default List;
