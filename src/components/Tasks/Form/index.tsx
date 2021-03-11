@@ -34,8 +34,8 @@ const Form = ({ onSubmit }: Tasks.FormProps) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      {error && <p>{error}</p>}
-      <label htmlFor="Content">Task</label>
+      {error && <div className="error">{error}</div>}
+      <label htmlFor="Content">Task: </label>
       <input
         id="content"
         type="text"
@@ -43,7 +43,7 @@ const Form = ({ onSubmit }: Tasks.FormProps) => {
         name="Content"
         onChange={({ target }) => setContent(target.value)}
       />
-      <label htmlFor="Priority">Priority</label>
+      <label htmlFor="Priority">Priority: </label>
       <input
         id="priority"
         type="number"

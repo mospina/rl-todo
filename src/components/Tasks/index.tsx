@@ -1,12 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import List from "./List";
 import Form from "./Form";
 import Stats from "./Stats";
+import Togglable from "../Togglable";
 
 const Tasks = () => {
   const [tasks, setTasks] = useState<Tasks.Tasks>([]);
+  const createFormRef = useRef<Togglable.TogglableRef>();
 
   const handleCreateTask = (task: Tasks.CreateTaskInput) => {
+    if (createFormRef && createFormRef.current)
+      createFormRef.current.toggleVisibility();
     const newTask = createTask(task);
     setTasks([...tasks, newTask]);
   };
@@ -24,7 +28,9 @@ const Tasks = () => {
   return (
     <div>
       <h2>RL To Do</h2>
-      <Form onSubmit={handleCreateTask} />
+      <Togglable buttonLabel="add task" ref={createFormRef}>
+        <Form onSubmit={handleCreateTask} />
+      </Togglable>
       <List
         tasks={tasks}
         onTaskUpdate={handleUpdateTask}
