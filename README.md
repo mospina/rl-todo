@@ -43,6 +43,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ## Data
 
+```
 Task: {
   id: number
   content: string
@@ -61,3 +62,4 @@ createTask: (content, priority) -> Task
 updateTask: (id, changes) -> Task
 addTask: Task -> Tasks
 deleteTask: id -> Tasks
+```
