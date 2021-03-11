@@ -1,12 +1,13 @@
 import React from "react";
+import Task from "../Task";
 
-const List = () => {
-  return (
-    <div>
-      <h2>ToDo</h2>
-      <p>A todo list app</p>
-    </div>
-  );
-};
+const List = ({ tasks }: Tasks.ListProps) => (
+  <div>
+    {tasks.map((task) => (
+      <Task key={task.id} task={task} />
+    ))}
+    <p>{tasks.length}</p>
+  </div>
+);
 
 export default List;

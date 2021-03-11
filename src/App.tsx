@@ -1,11 +1,11 @@
 import React from "react";
 import "./App.css";
-import TasksList from "./components/Tasks/List";
+import Tasks from "./components/Tasks";
 
 const App = () => {
   return (
     <div className="App">
-      <TasksList />
+      <Tasks />
     </div>
   );
 };
