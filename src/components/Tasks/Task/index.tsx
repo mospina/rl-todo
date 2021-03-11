@@ -21,7 +21,7 @@ const Task = ({ task, onTaskUpdate, onTaskDelete }: Tasks.TaskProps) => {
     <tr>
       <td>
         <input
-          id="completed"
+          id={`completed-${task.id}`}
           name="Completed"
           type="checkbox"
           checked={task.completed}
@@ -30,16 +30,25 @@ const Task = ({ task, onTaskUpdate, onTaskDelete }: Tasks.TaskProps) => {
       </td>
       <td>{task.content}</td>
       <td>
-        <button id="increment-priority" onClick={handleIncrementPriority}>
+        <button
+          id={`increment-priority-${task.id}`}
+          onClick={handleIncrementPriority}
+        >
           increment
         </button>
         {task.priority}
-        <button id="decrement-priority" onClick={handleDecrementPriority}>
+        <button
+          id={`decrement-priority-${task.id}`}
+          onClick={handleDecrementPriority}
+        >
           decrement
         </button>
       </td>
       <td>
-        <button id="delete-task" onClick={() => onTaskDelete(task.id)}>
+        <button
+          id={`delete-task-${task.id}`}
+          onClick={() => onTaskDelete(task.id)}
+        >
           delete
         </button>
       </td>

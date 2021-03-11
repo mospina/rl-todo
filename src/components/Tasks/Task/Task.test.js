@@ -3,8 +3,8 @@ import "@testing-library/jest-dom/extend-expect";
 import { render, fireEvent } from "@testing-library/react";
 import Task from "./index";
 
-describe("Task", () => {
-  test("calls event handler with right details for completed", () => {
+describe("completed", () => {
+  test("calls event handler with right details", () => {
     const task = {
       id: 1,
       content: "test task",
@@ -22,7 +22,7 @@ describe("Task", () => {
       </table>
     );
 
-    const completed = component.container.querySelector("#completed");
+    const completed = component.container.querySelector(`#completed-${task.id}`);
 
     fireEvent.click(completed)
 
@@ -31,8 +31,11 @@ describe("Task", () => {
     expect(result.id).toBe(task.id);
     expect(result.completed).toBe(true);
   });
+})
 
-  test("calls event handler with right details for increment priority", () => {
+describe("increment-priority", () => {
+
+  test("calls event handler with right details", () => {
     const task = {
       id: 1,
       content: "test task",
@@ -50,7 +53,7 @@ describe("Task", () => {
       </table>
     );
 
-    const increment = component.container.querySelector("#increment-priority");
+    const increment = component.container.querySelector(`#increment-priority-${task.id}`);
 
     fireEvent.click(increment)
 
@@ -60,7 +63,35 @@ describe("Task", () => {
     expect(result.priority).toBe(1);
   });
 
-  test("calls event handler with right details for decrement priority", () => {
+  test("do not call handler when priority is already 1", () => {
+    const task = {
+      id: 2,
+      content: "test task",
+      priority: 1,
+      completed: false,
+    };
+
+    const mockHandler = jest.fn();
+
+    const component = render(
+      <table>
+        <tbody>
+          <Task task={task} onTaskUpdate={mockHandler} />
+        </tbody>
+      </table>
+    );
+
+    const increment = component.container.querySelector(`#increment-priority-${task.id}`);
+
+    fireEvent.click(increment)
+
+    expect(mockHandler.mock.calls).toHaveLength(0);
+  });
+
+})
+
+describe("decrement-priority", () => {
+  test("calls event handler with right details", () => {
     const task = {
       id: 1,
       content: "test task",
@@ -78,7 +109,7 @@ describe("Task", () => {
       </table>
     );
 
-    const decrement = component.container.querySelector("#decrement-priority");
+    const decrement = component.container.querySelector(`#decrement-priority-${task.id}`);
 
     fireEvent.click(decrement)
 
@@ -88,7 +119,10 @@ describe("Task", () => {
     expect(result.priority).toBe(3);
   });
 
-  test("calls event handler with right details for delete", () => {
+})
+
+describe("delete", () => {
+  test("calls event handler with right details", () => {
     const task = {
       id: 1,
       content: "test task",
@@ -106,7 +140,7 @@ describe("Task", () => {
       </table>
     );
 
-    const deleteButton = component.container.querySelector("#delete-task");
+    const deleteButton = component.container.querySelector(`#delete-task-${task.id}`);
 
     fireEvent.click(deleteButton)
 
