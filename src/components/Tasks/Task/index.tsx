@@ -19,7 +19,7 @@ const Task = ({ task, onTaskUpdate, onTaskDelete }: Tasks.TaskProps) => {
     onTaskUpdate(task.id, { ...task, priority: task.priority + 1 });
 
   return (
-    <tr>
+    <Row>
       <td>
         <input
           id={`completed-${task.id}`}
@@ -29,39 +29,56 @@ const Task = ({ task, onTaskUpdate, onTaskDelete }: Tasks.TaskProps) => {
           onChange={handleCompleted}
         />
       </td>
-      <td>{task.content}</td>
+      <Content>{task.content}</Content>
       <td>
-        <button
+        <RoundButton
           id={`increment-priority-${task.id}`}
           className="round-button"
           onClick={handleIncrementPriority}
         >
           +
-        </button>
+        </RoundButton>
         {task.priority}
-        <button
+        <RoundButton
           id={`decrement-priority-${task.id}`}
           className="round-button"
           onClick={handleDecrementPriority}
         >
           -
-        </button>
+        </RoundButton>
       </td>
       <td>
-        <button
+        <RoundButton
           id={`delete-task-${task.id}`}
           className="round-button"
           onClick={() => onTaskDelete(task.id)}
         >
           X
-        </button>
+        </RoundButton>
       </td>
-    </tr>
+    </Row>
   );
 };
 
 const Row = styled.tr`
   background-color: #e8e8e8;
+`;
+
+const Content = styled.td`
+  text-align: left;
+`;
+
+const RoundButton = styled.button`
+  margin: 0 1em 0 1em;
+  border-radius: 50%;
+  border: 1px solid #98a1a4;
+  overflow: hidden;
+  background: transparent;
+  box-shadow: 0 0 3px gray;
+
+  &:hover {
+    background: #c0c0c0;
+  }
 `;
 
 export default Task;

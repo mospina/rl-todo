@@ -34,8 +34,11 @@ const compare = (a: Tasks.Task, b: Tasks.Task): number => {
 };
 
 const Table = styled.table`
+  font-family: Arial, Helvetica, sans-serif;
   margin: auto;
   width: 60%;
+  border-spacing: 0;
+  border-collapse: collapse;
 `;
 
 const Headers = styled.tr`
