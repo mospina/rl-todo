@@ -11,14 +11,11 @@ jobs:
 
     env:
       DEPLOY_ENV: staging
-      # add secrets from cloud provider XXX: ${{ secrets.XXX  }}
 
     steps:
       - uses: actions/checkout@v2
 
       - uses: actions/setup-node@v1
-
-      # - run: install app from cloud provider to deploy
 
       - name: Cache node modules
         uses: actions/cache@v2
@@ -35,4 +32,4 @@ jobs:
 
       - run: npm install    
 
-      #- run: deploy somewhere
+      - run: npm test --watchAll=false
