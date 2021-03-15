@@ -1,4 +1,5 @@
 import React from "react";
+import styled from "styled-components";
 
 const Task = ({ task, onTaskUpdate, onTaskDelete }: Tasks.TaskProps) => {
   const handleCompleted = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -58,5 +59,9 @@ const Task = ({ task, onTaskUpdate, onTaskDelete }: Tasks.TaskProps) => {
     </tr>
   );
 };
+
+const Row = styled.tr`
+  background-color: #e8e8e8;
+`;
 
 export default Task;
