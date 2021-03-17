@@ -19,8 +19,8 @@ const Task = ({ task, onTaskUpdate, onTaskDelete }: Tasks.TaskProps) => {
     onTaskUpdate(task.id, { ...task, priority: task.priority + 1 });
 
   return (
-    <Row>
-      <td>
+    <React.Fragment>
+      <Completed>
         <input
           id={`completed-${task.id}`}
           name="Completed"
@@ -28,9 +28,9 @@ const Task = ({ task, onTaskUpdate, onTaskDelete }: Tasks.TaskProps) => {
           checked={task.completed}
           onChange={handleCompleted}
         />
-      </td>
+      </Completed>
       <Content>{task.content}</Content>
-      <td>
+      <Priority>
         <RoundButton
           id={`increment-priority-${task.id}`}
           className="round-button"
@@ -46,8 +46,8 @@ const Task = ({ task, onTaskUpdate, onTaskDelete }: Tasks.TaskProps) => {
         >
           -
         </RoundButton>
-      </td>
-      <td>
+      </Priority>
+      <Delete>
         <RoundButton
           id={`delete-task-${task.id}`}
           className="round-button"
@@ -55,17 +55,42 @@ const Task = ({ task, onTaskUpdate, onTaskDelete }: Tasks.TaskProps) => {
         >
           X
         </RoundButton>
-      </td>
-    </Row>
+      </Delete>
+    </React.Fragment>
   );
 };
 
-const Row = styled.tr`
-  background-color: #e8e8e8;
+const Completed = styled.div`
+  text-align: center;
+  width: 15%;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 0 5rem 0 5rem;
+
 `;
 
-const Content = styled.td`
+const Content = styled.div`
+  flex-grow: 1;
   text-align: left;
+  width: 60%;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 0 5rem 0 5rem;
+`;
+
+const Priority = styled.div`
+  text-align: left;
+  width: 30%;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 0 5rem 0 5rem;
+`;
+const Delete = styled.div`
+  text-align: left;
+  width: 30%;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 0 5rem 0 5rem;
 `;
 
 const RoundButton = styled.button`
