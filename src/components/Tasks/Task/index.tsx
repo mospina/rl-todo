@@ -48,13 +48,11 @@ const Task = ({ task, onTaskUpdate, onTaskDelete }: Tasks.TaskProps) => {
         </RoundButton>
       </Priority>
       <Delete>
-        <RoundButton
+        <TrashIcon
           id={`delete-task-${task.id}`}
           className="round-button"
           onClick={() => onTaskDelete(task.id)}
-        >
-          X
-        </RoundButton>
+        />
       </Delete>
     </Row>
   );
@@ -74,7 +72,6 @@ const Completed = styled.div`
   text-align: center;
   flex-basis: 15%;
   padding: 0 5rem 0 5rem;
-
 `;
 
 const Content = styled.div`
@@ -104,6 +101,49 @@ const RoundButton = styled.button`
 
   &:hover {
     background: #c0c0c0;
+  }
+`;
+
+const TrashIcon = styled.div`
+  color: #000;
+  position: absolute;
+  margin-left: 5px;
+  margin-top: 7px;
+  width: 9px;
+  height: 10px;
+  border-left: solid 1px currentColor;
+  border-right: solid 1px currentColor;
+  border-bottom: solid 1px currentColor;
+  border-radius: 0 0 2px 2px;
+
+  &:before {
+    content: "";
+    position: absolute;
+    left: -4px;
+    top: -2px;
+    width: 17px;
+    height: 1px;
+    background-color: currentColor;
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    left: 0px;
+    top: -5px;
+    width: 7px;
+    height: 2px;
+    border-left: solid 1px currentColor;
+    border-right: solid 1px currentColor;
+    border-top: solid 1px currentColor;
+    border-radius: 4px 4px 0 0;
+  }
+
+  &:hover {
+    background: #c0c0c0;
+    &:after {
+      background: #c0c0c0;
+    }
   }
 `;
 
