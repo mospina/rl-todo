@@ -75,7 +75,7 @@ const Main = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: 1rem;
   width: 100%;
 `;
 

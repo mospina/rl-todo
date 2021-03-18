@@ -19,7 +19,7 @@ const Task = ({ task, onTaskUpdate, onTaskDelete }: Tasks.TaskProps) => {
     onTaskUpdate(task.id, { ...task, priority: task.priority + 1 });
 
   return (
-    <React.Fragment>
+    <Row>
       <Completed>
         <input
           id={`completed-${task.id}`}
@@ -56,40 +56,41 @@ const Task = ({ task, onTaskUpdate, onTaskDelete }: Tasks.TaskProps) => {
           X
         </RoundButton>
       </Delete>
-    </React.Fragment>
+    </Row>
   );
 };
 
+const Row = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #fbf7ff;
+  color: #1d2671;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+`;
+
 const Completed = styled.div`
   text-align: center;
-  width: 15%;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  flex-basis: 15%;
   padding: 0 5rem 0 5rem;
 
 `;
 
 const Content = styled.div`
-  flex-grow: 1;
   text-align: left;
-  width: 60%;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  flex-basis: 60%;
   padding: 0 5rem 0 5rem;
 `;
 
 const Priority = styled.div`
   text-align: left;
-  width: 30%;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  flex-basis: 20%;
   padding: 0 5rem 0 5rem;
 `;
 const Delete = styled.div`
   text-align: left;
-  width: 30%;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  width: 10%;
   padding: 0 5rem 0 5rem;
 `;
 
