@@ -4,24 +4,20 @@ import Task from "../Task";
 
 const List = ({ tasks, onTaskUpdate, onTaskDelete }: Tasks.ListProps) => (
   <Table>
-    <thead>
-      <Headers>
-        <th>completed</th>
-        <th>task</th>
-        <th>priority</th>
-        <th>delete</th>
-      </Headers>
-    </thead>
-    <tbody>
-      {tasks.sort(compare).map((task) => (
+    <Headers>
+      <Completed>completed</Completed>
+      <Content>task</Content>
+      <Priority>priority</Priority>
+      <Delete>delete</Delete>
+    </Headers>
+    {tasks.sort(compare).map((task) => (
         <Task
           key={task.id}
           task={task}
           onTaskUpdate={onTaskUpdate}
           onTaskDelete={onTaskDelete}
         />
-      ))}
-    </tbody>
+    ))}
   </Table>
 );
 
@@ -33,16 +29,51 @@ const compare = (a: Tasks.Task, b: Tasks.Task): number => {
   return 0;
 };
 
-const Table = styled.table`
+const Table = styled.div`
+  display: flex
+  width: 100%
+  margin: 1em;
   font-family: Arial, Helvetica, sans-serif;
-  margin: auto;
-  width: 60%;
-  border-spacing: 0;
-  border-collapse: collapse;
+  background-color: #E8D5B5;
+  border-radius: 25px;
 `;
 
-const Headers = styled.tr`
-  background-color: #c0c0c0;
+const Headers = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  color: #1d2671;
+`;
+
+const Completed = styled.div`
+  text-align: center;
+  flex-basis: 5%;
+  padding: 0 0 0 5rem;
+  text-transform: uppercase;
+
+`;
+
+const Content = styled.div`
+  text-align: center;
+  flex-basis: 70%;
+  padding: 0 5rem 0 5rem;
+  text-transform: uppercase;
+  text-transform: uppercase;
+`;
+
+const Priority = styled.div`
+  text-align: center;
+  flex-basis: 20%;
+  padding: 0 5rem 0 5rem;
+  text-transform: uppercase;
+`;
+const Delete = styled.div`
+  text-align: center;
+  flex-basis: 5%;
+  padding: 0 5rem 0 5rem;
+  text-transform: uppercase;
 `;
 
 export default List;

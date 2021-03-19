@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import styled from "styled-components";
 import List from "./List";
 import Form from "./Form";
 import Stats from "./Stats";
@@ -26,18 +27,20 @@ const Tasks = () => {
   };
 
   return (
-    <div>
-      <h2>RL To Do</h2>
-      <Togglable buttonLabel="add task" ref={createFormRef}>
-        <Form onSubmit={handleCreateTask} />
-      </Togglable>
-      <List
-        tasks={tasks}
-        onTaskUpdate={handleUpdateTask}
-        onTaskDelete={handleDeleteTask}
-      />
-      <Stats tasks={tasks} />
-    </div>
+    <Container>
+      <Header>RL To Do</Header>
+      <Main>
+        <Togglable buttonLabel="add task" ref={createFormRef}>
+          <Form onSubmit={handleCreateTask} />
+        </Togglable>
+        <List
+          tasks={tasks}
+          onTaskUpdate={handleUpdateTask}
+          onTaskDelete={handleDeleteTask}
+        />
+        <Stats tasks={tasks} />
+      </Main>
+    </Container>
   );
 };
 
@@ -52,5 +55,28 @@ const createTask = ({
 });
 
 const generateId = (): number => Number((Math.random() * 1000000).toFixed(0));
+
+const Container = styled.div`
+  background-color: #1d2671;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: calc(10px + 2vmin);
+  color: #fff;
+`;
+
+const Header = styled.h2`
+  color: #06f4b1;
+`;
+
+const Main = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  width: 100%;
+`;
 
 export default Tasks;
