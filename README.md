@@ -47,9 +47,11 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 Task: {
   id: number
   content: string
-  priority: number // Positive Integer [1..). The lowest the number the highest the priority
+  priority: Priority 
   completed: boolean
 }
+
+Priority: highest | high | medium | low | lowest
 
 Tasks: [Task]
 
