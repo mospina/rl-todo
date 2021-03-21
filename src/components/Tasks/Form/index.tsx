@@ -9,7 +9,7 @@ const priorityOptions = [
   { label: "lowest", value: 5 },
 ];
 
-const Form = ({ onSubmit }: Tasks.FormProps) => {
+const Form = ({ onSubmit, onCancel }: Tasks.FormProps) => {
   const [content, setContent] = useState<string>("");
   const [priority, setPriority] = useState<number>(1);
   const [error, setError] = useState<string | null>(null);
@@ -19,6 +19,9 @@ const Form = ({ onSubmit }: Tasks.FormProps) => {
 
     if (content.length === 0) {
       setError("Content can not be empty");
+      setTimeout(() => {
+        setError(null);
+      }, 5000);
       return;
     }
 
@@ -38,36 +41,43 @@ const Form = ({ onSubmit }: Tasks.FormProps) => {
   };
 
   return (
-    <FormContainer onSubmit={handleSubmit}>
-      {error && <div className="error">{error}</div>}
-      <FormField>
-        <label htmlFor="Content">Task: </label>
-        <input
-          id="create-content"
-          type="text"
-          value={content}
-          name="Content"
-          onChange={({ target }) => setContent(target.value)}
-        />
-      </FormField>
-      <FormField>
-        <label htmlFor="Priority">Priority: </label>
-        <Select
-          id={`create-priority`}
-          value={priority}
-          onChange={handlePriorityChange}
-        >
-          {priorityOptions.map((p) => (
-            <option key={p.value} value={p.value}>
-              {p.label}
-            </option>
-          ))}
-        </Select>
-      </FormField>
-      <button type="submit">Submit</button>
-    </FormContainer>
+    <>
+      {error && <Errors className="error">{error}</Errors>}
+      <FormContainer onSubmit={handleSubmit}>
+        <FormField>
+          <label htmlFor="Content">Task: </label>
+          <input
+            id="create-content"
+            type="text"
+            value={content}
+            name="Content"
+            onChange={({ target }) => setContent(target.value)}
+          />
+        </FormField>
+        <FormField>
+          <label htmlFor="Priority">Priority: </label>
+          <Select
+            id={`create-priority`}
+            value={priority}
+            onChange={handlePriorityChange}
+          >
+            {priorityOptions.map((p) => (
+              <option key={p.value} value={p.value}>
+                {p.label}
+              </option>
+            ))}
+          </Select>
+        </FormField>
+        <Button onClick={onCancel}>Cancel</Button>
+        <Button type="submit">Add</Button>
+      </FormContainer>
+    </>
   );
 };
+
+const Errors = styled.div`
+  color: #ff0000;
+`;
 
 const FormContainer = styled.form`
   display: flex;
@@ -85,7 +95,6 @@ const Select = styled.select`
   display: inline-block;
   width: auto;
   padding: 0.6em 1.4em 0.5em 0.8em;
-  width: auto;
   box-sizing: border-box;
   margin: 0;
   border: 1px solid #aaa;
@@ -115,6 +124,33 @@ const Select = styled.select`
 
   & option {
     font-weight: normal;
+  }
+`;
+
+const Button = styled.button`
+  display: inline-block;
+  margin: 0 1rem 0 1rem;
+  padding: 0 1rem 0 1rem;
+  width: auto;
+  box-sizing: border-box;
+  border: 1px solid #aaa;
+  box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);
+  border-radius: 0.5em;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #fff;
+
+  &:hover {
+    border-color: #888;
+  }
+
+  &:focus {
+    border-color: #aaa;
+    box-shadow: 0 0 1px 3px #e8d5b5;
+    box-shadow: 0 0 0 3px -moz-mac-focusring;
+    color: #222;
+    outline: none;
   }
 `;
 

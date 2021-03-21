@@ -36,5 +36,6 @@ declare namespace Tasks {
 
   type FormProps = {
     onSubmit: (i: CreateTaskInput) => void;
+    onCancel: () => void
   };
 }

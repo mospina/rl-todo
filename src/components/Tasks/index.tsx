@@ -16,6 +16,11 @@ const Tasks = () => {
     setTasks([...tasks, newTask]);
   };
 
+  const handleCancelCreateTask = () => {
+    if (createFormRef && createFormRef.current)
+      createFormRef.current.toggleVisibility();
+  };
+
   const handleUpdateTask = (id: number, changes: Tasks.Task) => {
     const updatedTasks = tasks.map((task) => (task.id === id ? changes : task));
     setTasks(updatedTasks);
@@ -28,10 +33,10 @@ const Tasks = () => {
 
   return (
     <Container>
-      <Header>RL To Do</Header>
+      <Header>To Do</Header>
       <Main>
-        <Togglable buttonLabel="add task" ref={createFormRef}>
-          <Form onSubmit={handleCreateTask} />
+        <Togglable buttonLabel="Add Task" ref={createFormRef}>
+          <Form onSubmit={handleCreateTask} onCancel={handleCancelCreateTask} />
         </Togglable>
         <List
           tasks={tasks}
