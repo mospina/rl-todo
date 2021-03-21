@@ -43,7 +43,7 @@ const Form = ({ onSubmit }: Tasks.FormProps) => {
       <FormField>
         <label htmlFor="Content">Task: </label>
         <input
-          id="content"
+          id="create-content"
           type="text"
           value={content}
           name="Content"
@@ -52,9 +52,15 @@ const Form = ({ onSubmit }: Tasks.FormProps) => {
       </FormField>
       <FormField>
         <label htmlFor="Priority">Priority: </label>
-        <Select value={priority} onChange={handlePriorityChange}>
+        <Select
+          id={`create-priority`}
+          value={priority}
+          onChange={handlePriorityChange}
+        >
           {priorityOptions.map((p) => (
-            <option value={p.value}>{p.label}</option>
+            <option key={p.value} value={p.value}>
+              {p.label}
+            </option>
           ))}
         </Select>
       </FormField>

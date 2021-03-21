@@ -15,8 +15,8 @@ describe("Form", () => {
     const component = render(<Form onSubmit={mockHandler} />);
 
     const form = component.container.querySelector("form");
-    const content = component.container.querySelector("#content");
-    const priority = component.container.querySelector("#priority");
+    const content = component.container.querySelector("#create-content");
+    const priority = component.container.querySelector("#create-priority");
 
     fireEvent.change(content, {
       target: { value: task.content },
@@ -33,23 +33,6 @@ describe("Form", () => {
     expect(result.priority).toBe(task.priority);
   });
 
-  test("show error message when priority is less than 0", () => {
-    const task = {
-      content: "test task",
-      priority: -1,
-    };
-
-    const component = render(<Form />);
-
-    const priority = component.container.querySelector("#priority");
-
-    fireEvent.change(priority, {
-      target: { value: task.priority },
-    });
-
-    expect(component.container).toHaveTextContent(/must be higher than 0/i);
-  });
-
   test("Show error message when content is empty", () => {
     const task = {
       content: "",
@@ -61,8 +44,8 @@ describe("Form", () => {
     const component = render(<Form onSubmit={mockHandler} />);
 
     const form = component.container.querySelector("form");
-    const content = component.container.querySelector("#content");
-    const priority = component.container.querySelector("#priority");
+    const content = component.container.querySelector("#create-content");
+    const priority = component.container.querySelector("#create-priority");
 
     fireEvent.change(content, {
       target: { value: task.content },

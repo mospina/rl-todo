@@ -35,16 +35,21 @@ const Task = ({ task, onTaskUpdate, onTaskDelete }: Tasks.TaskProps) => {
       </Completed>
       <Content>{task.content}</Content>
       <Priority>
-        <Select value={task.priority} onChange={handlePriorityChange}>
+        <Select
+          id={`change-priority-${task.id}`}
+          value={task.priority}
+          onChange={handlePriorityChange}
+        >
           {priorityOptions.map((p) => (
-            <option value={p.value}>{p.label}</option>
+            <option key={p.value} value={p.value}>
+              {p.label}
+            </option>
           ))}
         </Select>
       </Priority>
       <Delete>
         <TrashIcon
           id={`delete-task-${task.id}`}
-          className="round-button"
           onClick={() => onTaskDelete(task.id)}
         />
       </Delete>
