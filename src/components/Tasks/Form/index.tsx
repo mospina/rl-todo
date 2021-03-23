@@ -85,10 +85,18 @@ const FormContainer = styled.form`
   justify-content: space-between;
   padding-top: 1rem;
   padding-bottom: 1rem;
+
+  @media screen and (max-width: 400px) {
+    flex-direction: column;
+  }
 `;
 
 const FormField = styled.div`
   padding: 0 1rem 0 1rem;
+
+  @media screen and (max-width: 400px) {
+    padding: 0 0 1rem 0;
+  }
 `;
 
 const Select = styled.select`
@@ -151,6 +159,11 @@ const Button = styled.button`
     box-shadow: 0 0 0 3px -moz-mac-focusring;
     color: #222;
     outline: none;
+  }
+
+  @media screen and (max-width: 400px) {
+    margin: 0 0 1rem 0;
+    padding: 0.5rem;
   }
 `;
 

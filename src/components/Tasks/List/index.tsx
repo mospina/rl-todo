@@ -11,12 +11,12 @@ const List = ({ tasks, onTaskUpdate, onTaskDelete }: Tasks.ListProps) => (
       <Delete>delete</Delete>
     </Headers>
     {tasks.sort(compare).map((task) => (
-        <Task
-          key={task.id}
-          task={task}
-          onTaskUpdate={onTaskUpdate}
-          onTaskDelete={onTaskDelete}
-        />
+      <Task
+        key={task.id}
+        task={task}
+        onTaskUpdate={onTaskUpdate}
+        onTaskDelete={onTaskDelete}
+      />
     ))}
   </Table>
 );
@@ -45,6 +45,10 @@ const Headers = styled.div`
   margin-top: 1rem;
   margin-bottom: 1rem;
   color: #1d2671;
+
+  @media screen and (max-width: 400px) {
+    flex-direction: column;
+  }
 `;
 
 const Completed = styled.div`
@@ -52,7 +56,6 @@ const Completed = styled.div`
   flex-basis: 5%;
   padding: 0 0 0 5rem;
   text-transform: uppercase;
-
 `;
 
 const Content = styled.div`

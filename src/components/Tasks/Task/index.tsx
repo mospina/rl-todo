@@ -65,6 +65,10 @@ const Row = styled.div`
   color: #1d2671;
   padding-top: 1rem;
   padding-bottom: 1rem;
+
+  @media screen and (max-width: 400px) {
+    flex-direction: column;
+  }
 `;
 
 const Completed = styled.div`
