@@ -36,6 +36,10 @@ const Table = styled.div`
   font-family: Arial, Helvetica, sans-serif;
   background-color: #E8D5B5;
   border-radius: 25px;
+
+  @media screen and (max-width: 400px) {
+    background-color: #1d2671;
+  }
 `;
 
 const Headers = styled.div`
@@ -56,6 +60,10 @@ const Completed = styled.div`
   flex-basis: 5%;
   padding: 0 0 0 5rem;
   text-transform: uppercase;
+
+  @media screen and (max-width: 400px) {
+    display: none;
+  }
 `;
 
 const Content = styled.div`
@@ -64,6 +72,10 @@ const Content = styled.div`
   padding: 0 5rem 0 5rem;
   text-transform: uppercase;
   text-transform: uppercase;
+
+  @media screen and (max-width: 400px) {
+    display: none;
+  }
 `;
 
 const Priority = styled.div`
@@ -71,12 +83,21 @@ const Priority = styled.div`
   flex-basis: 20%;
   padding: 0 5rem 0 5rem;
   text-transform: uppercase;
+
+  @media screen and (max-width: 400px) {
+    display: none;
+  }
 `;
+
 const Delete = styled.div`
   text-align: center;
   flex-basis: 5%;
   padding: 0 5rem 0 5rem;
   text-transform: uppercase;
+
+  @media screen and (max-width: 400px) {
+    display: none;
+  }
 `;
 
 export default List;

@@ -68,6 +68,9 @@ const Row = styled.div`
 
   @media screen and (max-width: 400px) {
     flex-direction: column;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 25px;
   }
 `;
 
@@ -81,12 +84,20 @@ const Content = styled.div`
   text-align: left;
   flex-basis: 60%;
   padding: 0 5rem 0 5rem;
+
+  @media screen and (max-width: 400px) {
+    padding: 0.5rem 5rem 0.5rem 5rem;
+  }
 `;
 
 const Priority = styled.div`
   text-align: left;
   flex-basis: 20%;
   padding: 0 5rem 0 5rem;
+
+  @media screen and (max-width: 400px) {
+    padding: 0.5rem 5rem 0.5rem 5rem;
+  }
 `;
 
 const Select = styled.select`
@@ -129,6 +140,10 @@ const Delete = styled.div`
   text-align: left;
   width: 10%;
   padding: 0 5rem 0 5rem;
+
+  @media screen and (max-width: 400px) {
+    padding: 0 5rem 1rem 5rem;
+  }
 `;
 
 const TrashIcon = styled.div`
