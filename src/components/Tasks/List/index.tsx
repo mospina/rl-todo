@@ -37,7 +37,7 @@ const Table = styled.div`
   background-color: #E8D5B5;
   border-radius: 25px;
 
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 634px) {
     background-color: #1d2671;
   }
 `;
@@ -50,7 +50,7 @@ const Headers = styled.div`
   margin-bottom: 1rem;
   color: #1d2671;
 
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 634px) {
     flex-direction: column;
   }
 `;
@@ -61,7 +61,7 @@ const Completed = styled.div`
   padding: 0 0 0 5rem;
   text-transform: uppercase;
 
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 634px) {
     display: none;
   }
 `;
@@ -73,7 +73,7 @@ const Content = styled.div`
   text-transform: uppercase;
   text-transform: uppercase;
 
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 634px) {
     display: none;
   }
 `;
@@ -84,7 +84,7 @@ const Priority = styled.div`
   padding: 0 5rem 0 5rem;
   text-transform: uppercase;
 
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 634px) {
     display: none;
   }
 `;
@@ -95,7 +95,7 @@ const Delete = styled.div`
   padding: 0 5rem 0 5rem;
   text-transform: uppercase;
 
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 634px) {
     display: none;
   }
 `;

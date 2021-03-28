@@ -66,7 +66,7 @@ const Row = styled.div`
   padding-top: 1rem;
   padding-bottom: 1rem;
 
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 634px) {
     flex-direction: column;
     padding: 1rem;
     margin: 1rem;
@@ -85,7 +85,7 @@ const Content = styled.div`
   flex-basis: 60%;
   padding: 0 5rem 0 5rem;
 
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 634px) {
     padding: 0.5rem 5rem 0.5rem 5rem;
   }
 `;
@@ -95,7 +95,7 @@ const Priority = styled.div`
   flex-basis: 20%;
   padding: 0 5rem 0 5rem;
 
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 634px) {
     padding: 0.5rem 5rem 0.5rem 5rem;
   }
 `;
@@ -141,7 +141,7 @@ const Delete = styled.div`
   width: 10%;
   padding: 0 5rem 0 5rem;
 
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 634px) {
     padding: 0 5rem 1rem 5rem;
   }
 `;
